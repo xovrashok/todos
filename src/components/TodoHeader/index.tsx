@@ -13,7 +13,7 @@ export const TodoHeader = ({
 }: TodoHeaderProps) => {
   const addTask = (title: string) => {
     if (title !== "") {
-      const taskId = "task-" + Date.now();
+      const taskId = "task" + (tasks.length + 1);
       const newTask = {
         id: taskId,
         title: title,
