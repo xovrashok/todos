@@ -7,7 +7,7 @@ interface SelectedTodosLeftProps {
 export const SelectedTodosLeft = ({ activeCount }: SelectedTodosLeftProps) => {
   return (
     <SelectedTodosLeftContainer>
-      <span className="active-task-count">{activeCount} tasks left</span>
+      <span>{activeCount} tasks left</span>
     </SelectedTodosLeftContainer>
   );
 };

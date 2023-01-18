@@ -1,5 +1,5 @@
 import React from "react";
-import { Li } from "./styles";
+import { TaskItemContainer, Title } from "./styles";
 import { RadioButton } from "../RadioButton";
 import Button from "../Button";
 
@@ -15,10 +15,10 @@ export const TaskItem = ({
   deleteTask,
 }: TaskItemProps) => {
   return (
-    <Li className={task.completed ? "task-item completed" : "task-item"}>
+    <TaskItemContainer>
       <RadioButton task={task} toggleComplete={toggleComplete} />
-      <span>{task.title}</span>
+      <Title className={task.completed ? "completed" : ""}>{task.title}</Title>
       <Button onClick={() => deleteTask(task)}>X</Button>
-    </Li>
+    </TaskItemContainer>
   );
 };

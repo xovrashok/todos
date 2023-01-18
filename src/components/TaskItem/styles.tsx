@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Li = styled.li`
+export const TaskItemContainer = styled.li`
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.1fr;
   grid-template-rows: 1fr;
@@ -32,3 +32,11 @@ export const Checkbox = styled.input`
     border-color: #333;
   }
 `;
+
+export const Title = styled.span`
+    &.completed {
+        background-color: #f5f5f5;
+        text-decoration: line-through;
+    }
+`;
+
