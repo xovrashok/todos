@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Li } from "./styles";
 import { RadioButton } from "../RadioButton";
 import Button from "../Button";
@@ -14,11 +14,10 @@ export const TaskItem = ({
   toggleComplete,
   deleteTask,
 }: TaskItemProps) => {
-
   return (
     <Li className={task.completed ? "task-item completed" : "task-item"}>
       <RadioButton task={task} toggleComplete={toggleComplete} />
-      <span className="task-title">{task.title}</span>
+      <span>{task.title}</span>
       <Button onClick={() => deleteTask(task)}>X</Button>
     </Li>
   );

@@ -1,12 +1,13 @@
 import React from "react";
+import { SelectedTodosLeftContainer } from "./styles";
 
 interface SelectedTodosLeftProps {
   activeCount: number;
 }
 export const SelectedTodosLeft = ({ activeCount }: SelectedTodosLeftProps) => {
   return (
-    <span>
-      <span className="active-task-count">{activeCount}</span> tasks left
-    </span>
+    <SelectedTodosLeftContainer>
+      <span className="active-task-count">{activeCount} tasks left</span>
+    </SelectedTodosLeftContainer>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { TaskItem } from "../TaskItem";
+import { TaskListContainer } from "./styles";
 
 interface TaskListProps {
   tasks: Task[];
@@ -13,7 +14,7 @@ export const TaskList = ({
   deleteTask,
 }: TaskListProps) => {
   return (
-    <ul id="task-list" className="task-list">
+    <TaskListContainer>
       {tasks.map((task) => (
         <TaskItem
           key={task.id}
@@ -22,6 +23,6 @@ export const TaskList = ({
           deleteTask={deleteTask}
         />
       ))}
-    </ul>
+    </TaskListContainer>
   );
 };

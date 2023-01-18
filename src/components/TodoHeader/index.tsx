@@ -1,5 +1,4 @@
 import React from "react";
-import { FILTER } from "../../constants";
 import { InputField } from "../InputField";
 
 interface TodoHeaderProps {
@@ -7,7 +6,11 @@ interface TodoHeaderProps {
   setTasks: (tasks: Task[]) => void;
   setTasksToLocalStorage: (tasks: Task[]) => void;
 }
-export const TodoHeader = ({ tasks, setTasks, setTasksToLocalStorage }: TodoHeaderProps) => {
+export const TodoHeader = ({
+  tasks,
+  setTasks,
+  setTasksToLocalStorage,
+}: TodoHeaderProps) => {
   const addTask = (title: string) => {
     if (title !== "") {
       const taskId = "task-" + Date.now();

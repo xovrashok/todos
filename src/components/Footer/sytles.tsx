@@ -1,18 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    `;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const StatusesContainer = styled.div`
-    display: grid;
-    width: max-content;
-    `;
+  display: grid;
+  width: max-content;
+`;
 
 export const ClearCompletedButton = styled.div`
-    display: grid;
-    justify-items: center;
-    `;
+  display: grid;
+  justify-items: center;
+`;

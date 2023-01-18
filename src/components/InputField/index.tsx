@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { InputFieldContainer } from "./styles";
 
-
 interface NewTaskFormProps {
   addTask: AddTask;
 }
