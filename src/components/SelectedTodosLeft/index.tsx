@@ -1,8 +1,9 @@
-import { useTodoContext } from "../../context/TodoContext";
-import { SelectedTodosLeftContainer } from "./styles";
+import { useTodo } from '../../module/todo/useTodoContext';
+import { SelectedTodosLeftContainer } from './styles';
 
 export const SelectedTodosLeft = () => {
-  const { activeCount } = useTodoContext();
+  const { activeCount } = useTodo();
+
   return (
     <SelectedTodosLeftContainer>
       <span>{activeCount} tasks left</span>

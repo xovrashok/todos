@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "./styles";
+import React from 'react';
+import { Button } from './styles';
 
 interface ButtonProps {
   onClick: () => void;
@@ -7,7 +7,11 @@ interface ButtonProps {
   children: string;
 }
 const Buttons = ({ onClick, children, className }: ButtonProps) => {
-  return <Button onClick={onClick} className={className}>{children}</Button>;
+  return (
+    <Button onClick={onClick} className={className}>
+      {children}
+    </Button>
+  );
 };
 
 export default Buttons;

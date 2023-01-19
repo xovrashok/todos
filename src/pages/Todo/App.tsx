@@ -1,8 +1,8 @@
-import { TaskList } from "../../components/TaskList";
-import { Footer } from "../../components/Footer";
-import { TodoTitle, TodoContainer, Wrapper } from "./styles";
-import { TodoHeader } from "../../components/TodoHeader";
-import { TodoProvider } from "../../context/TodoContext";
+import { TodoProvider } from '../../module/todo/TodoContextProvider';
+import { TaskList } from '../../components/TaskList';
+import { Footer } from '../../components/Footer';
+import { TodoTitle, TodoContainer, Wrapper } from './styles';
+import { TodoHeader } from '../../components/TodoHeader';
 
 function App() {
   return (

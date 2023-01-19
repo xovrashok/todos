@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Button = styled.div`
   font-size: 20px;
@@ -6,7 +6,7 @@ export const Button = styled.div`
   cursor: pointer;
 
   &:hover,
-  &.selected{
+  &.selected {
     background-color: #fff;
     border: 1px solid grey;
     border-radius: 10px;

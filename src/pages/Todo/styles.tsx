@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 1fr;
   padding: 25px;
-  `;
+`;
 export const TodoTitle = styled.h1`
   display: grid;
   grid-column-start: 6;

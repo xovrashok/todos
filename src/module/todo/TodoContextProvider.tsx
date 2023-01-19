@@ -1,32 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { FILTER, STORAGE_KEY_TASKS } from "../constants";
-
-export type TodoContextType = {
-  tasks: Array<Task>;
-  activeCount: number;
-  addTask: (title: string) => void;
-  toggleComplete: (task: Task) => void;
-  deleteTask: (task: Task) => void;
-  filter: FILTER;
-  setFilter: (filter: FILTER) => void;
-  setTasks: (tasks: Task[]) => void;
-  setTasksToLocalStorage: (tasks: Task[]) => void;
-  filteredTasks: Task[];
-  clearCompleted: () => void;
-};
-export const TodoContext = createContext({
-  tasks: [] as Task[],
-  activeCount: 0,
-  setTasks: (task: Task[]) => {},
-  addTask: (title: string) => {},
-  toggleComplete: (task: Task) => {},
-  deleteTask: (task: Task) => {},
-  filter: FILTER.ALL,
-  setFilter: (filter: FILTER) => {},
-  setTasksToLocalStorage: (tasks: Task[]) => {},
-  filteredTasks: [] as Task[],
-  clearCompleted: () => {},
-} as TodoContextType);
+import { useEffect, useState } from 'react';
+import { FILTER, STORAGE_KEY_TASKS } from '../../constants';
+import { TodoContext } from './TodoContext';
+import { DeleteTask, Task, ToggleComplete } from '../../interfaces/types';
 
 interface Props {
   children: JSX.Element[] | JSX.Element;
@@ -97,8 +72,8 @@ export const TodoProvider = ({ children }: Props) => {
   };
 
   const addTask = (title: string) => {
-    if (title !== "") {
-      const taskId = "task-" + Date.now();
+    if (title !== '') {
+      const taskId = 'task-' + Date.now();
       const newTask = {
         id: taskId,
         title: title,
@@ -130,4 +105,3 @@ export const TodoProvider = ({ children }: Props) => {
     </TodoContext.Provider>
   );
 };
-export const useTodoContext = () => useContext(TodoContext);

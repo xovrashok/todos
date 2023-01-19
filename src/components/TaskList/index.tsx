@@ -1,9 +1,9 @@
-import { TaskItem } from "../TaskItem";
-import { TaskListContainer } from "./styles";
-import { useTodoContext } from "../../context/TodoContext";
+import { useTodo } from '../../module/todo/useTodoContext';
+import { TaskItem } from '../TaskItem';
+import { TaskListContainer } from './styles';
 
 export const TaskList = () => {
-  const { filteredTasks } = useTodoContext();
+  const { filteredTasks } = useTodo();
   return (
     <TaskListContainer>
       {filteredTasks.map((task) => (

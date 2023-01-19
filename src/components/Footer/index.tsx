@@ -1,15 +1,11 @@
-import { SelectedTodosLeft } from "../SelectedTodosLeft";
-import { TodoStatuses } from "../TodoStatuses";
-import {
-  ClearCompletedButton,
-  FooterContainer,
-  StatusesContainer,
-} from "./sytles";
-import Button from "../Button";
-import { useTodoContext } from "../../context/TodoContext";
+import { SelectedTodosLeft } from '../SelectedTodosLeft';
+import { TodoStatuses } from '../TodoStatuses';
+import { ClearCompletedButton, FooterContainer, StatusesContainer } from './sytles';
+import Button from '../Button';
+import { useTodo } from '../../module/todo/useTodoContext';
 
 export const Footer = () => {
-  const { clearCompleted } = useTodoContext();
+  const { clearCompleted } = useTodo();
   return (
     <>
       <FooterContainer>

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TaskItemContainer = styled.li`
   display: grid;
-  grid-template-columns: repeat(10,1fr);
+  grid-template-columns: repeat(10, 1fr);
   align-items: center;
   height: 50px;
   border: 1px solid #ccc;
@@ -30,9 +30,14 @@ export const Checkbox = styled.input`
 `;
 
 export const Title = styled.span`
-    &.completed {
-        background-color: #f5f5f5;
-        text-decoration: line-through;
-    }
+  &.completed {
+    background-color: #f5f5f5;
+    text-decoration: line-through;
+  }
 `;
 
+export const DeleteButton = styled.div`
+  grid-column-start: 10;
+  display: grid;
+  justify-content: center;
+`;
