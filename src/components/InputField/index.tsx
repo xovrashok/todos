@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { InputFieldContainer } from "./styles";
+import { Form, InputFieldContainer } from "./styles";
 import { useTodoContext } from "../../context/TodoContext";
 
 export const InputField = () => {
@@ -17,13 +17,13 @@ export const InputField = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <InputFieldContainer
         type="text"
         value={newTask}
         onChange={handleChange}
         placeholder="What needs to be done?"
       />
-    </form>
+    </Form>
   );
 };

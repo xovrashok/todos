@@ -8,7 +8,7 @@ export const TaskFilters = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 `;

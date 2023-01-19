@@ -13,7 +13,11 @@ export const TaskItem = ({ task }: TaskItemProps) => {
     <TaskItemContainer>
       <RadioButton task={task} />
       <Title className={task.completed ? "completed" : ""}>{task.title}</Title>
-      <Button onClick={() => deleteTask(task)}>X</Button>
+      <div
+        style={{ gridColumnStart: "10", display: "grid", justifyContent: "center" }}
+      >
+        <Button onClick={() => deleteTask(task)}>X</Button>
+      </div>
     </TaskItemContainer>
   );
 };
