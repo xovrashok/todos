@@ -1,21 +1,39 @@
-import {createContext, FunctionComponent, useContext, useEffect, useState} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { FILTER, STORAGE_KEY_TASKS } from "../constants";
 
 export type TodoContextType = {
-  tasks: Task[];
+  tasks: Array<Task>;
   activeCount: number;
-  addTask: (task: string) => void;
+  addTask: (title: string) => void;
   toggleComplete: (task: Task) => void;
   deleteTask: (task: Task) => void;
   filter: FILTER;
   setFilter: (filter: FILTER) => void;
   setTasks: (tasks: Task[]) => void;
+  setTasksToLocalStorage: (tasks: Task[]) => void;
+  filteredTasks: Task[];
+  clearCompleted: () => void;
 };
-export const TodoContext = createContext({});
+export const TodoContext = createContext({
+  tasks: [] as Task[],
+  activeCount: 0,
+  setTasks: (task: Task[]) => {},
+  addTask: (title: string) => {},
+  toggleComplete: (task: Task) => {},
+  deleteTask: (task: Task) => {},
+  filter: FILTER.ALL,
+  setFilter: (filter: FILTER) => {},
+  setTasksToLocalStorage: (tasks: Task[]) => {},
+  filteredTasks: [] as Task[],
+  clearCompleted: () => {},
+} as TodoContextType);
 
+interface Props {
+  children: JSX.Element[] | JSX.Element;
+}
 
-export const TodoProvider:FunctionComponent = ({ children }: any) =>{
-  const [filter, setFilter] = useState<string>(FILTER.ALL);
+export const TodoProvider = ({ children }: Props) => {
+  const [filter, setFilter] = useState(FILTER.ALL);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
   const [activeCount, setActiveCount] = useState<number>(0);
@@ -78,21 +96,38 @@ export const TodoProvider:FunctionComponent = ({ children }: any) =>{
     setTasksToLocalStorage(updatedTasks);
   };
 
+  const addTask = (title: string) => {
+    if (title !== "") {
+      const taskId = "task-" + Date.now();
+      const newTask = {
+        id: taskId,
+        title: title,
+        completed: false,
+      };
+      const updatedTasks = [newTask, ...tasks];
+      setTasks(updatedTasks);
+      setTasksToLocalStorage(updatedTasks);
+    }
+  };
+
   return (
     <TodoContext.Provider
       value={{
         tasks,
-        filter: FILTER.ALL,
         activeCount,
-        setFilter,
-        setTasks,
+        addTask,
         toggleComplete,
         deleteTask,
+        filter,
+        setFilter,
+        setTasks,
+        setTasksToLocalStorage,
+        filteredTasks,
+        clearCompleted,
       }}
     >
       {children}
     </TodoContext.Provider>
   );
-}
-
+};
 export const useTodoContext = () => useContext(TodoContext);

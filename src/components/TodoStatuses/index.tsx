@@ -1,14 +1,10 @@
-import React from "react";
 import { FILTER } from "../../constants";
 import { TaskFilters, ButtonContainer } from "./styles";
 import Button from "../Button";
+import { useTodoContext } from "../../context/TodoContext";
 
-interface TodoStatuses {
-  filter: string;
-  setFilter: SetFilter;
-}
-
-export const TodoStatuses = ({ filter, setFilter }: TodoStatuses) => {
+export const TodoStatuses = () => {
+  const { filter, setFilter } = useTodoContext();
   return (
     <TaskFilters>
       <ButtonContainer>

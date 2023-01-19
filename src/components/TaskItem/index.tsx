@@ -1,22 +1,17 @@
-import React from "react";
 import { TaskItemContainer, Title } from "./styles";
 import { RadioButton } from "../RadioButton";
 import Button from "../Button";
+import { useTodoContext } from "../../context/TodoContext";
 
 interface TaskItemProps {
   task: Task;
-  toggleComplete: ToggleComplete;
-  deleteTask: DeleteTask;
 }
 
-export const TaskItem = ({
-  task,
-  toggleComplete,
-  deleteTask,
-}: TaskItemProps) => {
+export const TaskItem = ({ task }: TaskItemProps) => {
+  const { deleteTask } = useTodoContext();
   return (
     <TaskItemContainer>
-      <RadioButton task={task} toggleComplete={toggleComplete} />
+      <RadioButton task={task} />
       <Title className={task.completed ? "completed" : ""}>{task.title}</Title>
       <Button onClick={() => deleteTask(task)}>X</Button>
     </TaskItemContainer>

@@ -1,11 +1,9 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { InputFieldContainer } from "./styles";
+import { useTodoContext } from "../../context/TodoContext";
 
-interface NewTaskFormProps {
-  addTask: AddTask;
-}
-
-export const InputField = ({ addTask }: NewTaskFormProps) => {
+export const InputField = () => {
+  const { addTask } = useTodoContext();
   const [newTask, setNewTask] = useState<string>("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

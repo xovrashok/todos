@@ -1,9 +1,8 @@
-import React from "react";
 import { TaskList } from "../../components/TaskList";
 import { Footer } from "../../components/Footer";
 import { TodoTitle, TodoContainer } from "./styles";
 import { TodoHeader } from "../../components/TodoHeader";
-import { TodoContext, TodoProvider } from "../../context/TodoContext";
+import { TodoProvider } from "../../context/TodoContext";
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
         <TodoTitle>Todos</TodoTitle>
         <TodoContainer>
           <TodoHeader />
-          <TaskList tasks={[]} />
+          <TaskList />
           <Footer />
         </TodoContainer>
       </div>

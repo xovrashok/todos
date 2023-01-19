@@ -1,27 +1,13 @@
-import React from "react";
 import { TaskItem } from "../TaskItem";
 import { TaskListContainer } from "./styles";
+import { useTodoContext } from "../../context/TodoContext";
 
-interface TaskListProps {
-  tasks: Task[];
-  toggleComplete: ToggleComplete;
-  deleteTask: DeleteTask;
-}
-
-export const TaskList = ({
-  tasks,
-  toggleComplete,
-  deleteTask,
-}: TaskListProps) => {
+export const TaskList = () => {
+  const { filteredTasks } = useTodoContext();
   return (
     <TaskListContainer>
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          toggleComplete={toggleComplete}
-          deleteTask={deleteTask}
-        />
+      {filteredTasks.map((task) => (
+        <TaskItem key={task.id} task={task} />
       ))}
     </TaskListContainer>
   );

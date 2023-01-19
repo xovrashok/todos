@@ -1,4 +1,3 @@
-import React from "react";
 import { SelectedTodosLeft } from "../SelectedTodosLeft";
 import { TodoStatuses } from "../TodoStatuses";
 import {
@@ -7,25 +6,16 @@ import {
   StatusesContainer,
 } from "./sytles";
 import Button from "../Button";
+import { useTodoContext } from "../../context/TodoContext";
 
-interface FooterProps {
-  activeCount: number;
-  filter: string;
-  setFilter: (filter: string) => void;
-  clearCompleted: () => void;
-}
-export const Footer = ({
-  activeCount,
-  filter,
-  setFilter,
-  clearCompleted,
-}: FooterProps) => {
+export const Footer = () => {
+  const { clearCompleted } = useTodoContext();
   return (
     <>
       <FooterContainer>
-        <SelectedTodosLeft activeCount={activeCount} />
+        <SelectedTodosLeft />
         <StatusesContainer>
-          <TodoStatuses filter={filter} setFilter={setFilter} />
+          <TodoStatuses />
         </StatusesContainer>
         <ClearCompletedButton>
           <Button onClick={() => clearCompleted()}>Clear Completed</Button>
