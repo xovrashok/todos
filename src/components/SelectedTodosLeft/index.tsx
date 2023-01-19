@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
+import {TodoContext} from "../../context/TodoContext"
 import { SelectedTodosLeftContainer } from "./styles";
 
-interface SelectedTodosLeftProps {
-  activeCount: number;
-}
-export const SelectedTodosLeft = ({ activeCount }: SelectedTodosLeftProps) => {
+export const SelectedTodosLeft = () => {
+    const activeCount = useContext(TodoContext).activeCount;
   return (
     <SelectedTodosLeftContainer>
       <span>{activeCount} tasks left</span>
